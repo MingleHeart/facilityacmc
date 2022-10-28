@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataSource name="@lmongoDB">
+  <database-model serializer="dbm" dbms="MONGO" family-id="MONGO" format-version="4.43">
+    <root id="1">
+      <ServerVersion>6.0.2</ServerVersion>
+    </root>
+    <schema id="2" parent="1" name="facilityacmcdata">
+      <Current>1</Current>
+    </schema>
+    <table id="3" parent="2" name="fac_data_h_Tx061"/>
+    <table id="4" parent="2" name="fac_sys_log"/>
+    <column id="5" parent="3" name="_id">
+      <DataType>ObjectId|12s</DataType>
+      <Position>1</Position>
+    </column>
+    <column id="6" parent="3" name="aa">
+      <DataType>Double|8s</DataType>
+      <Position>1</Position>
+    </column>
+    <column id="7" parent="4" name="_id">
+      <DataType>ObjectId|12s</DataType>
+      <Position>1</Position>
+    </column>
+    <column id="8" parent="4" name="createTime">
+      <DataType>String|12s</DataType>
+      <Position>1</Position>
+    </column>
+    <column id="9" parent="4" name="ip">
+      <DataType>String|12s</DataType>
+      <Position>2</Position>
+    </column>
+    <column id="10" parent="4" name="method">
+      <DataType>String|12s</DataType>
+      <Position>3</Position>
+    </column>
+    <column id="11" parent="4" name="params">
+      <DataType>String|12s</DataType>
+      <Position>4</Position>
+    </column>
+    <column id="12" parent="4" name="result">
+      <DataType>String|12s</DataType>
+      <Position>5</Position>
+    </column>
+    <column id="13" parent="4" name="time">
+      <DataType>String|12s</DataType>
+      <Position>6</Position>
+    </column>
+  </database-model>
+</dataSource>

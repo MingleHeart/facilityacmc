@@ -1,0 +1,111 @@
+server:
+  port: 9021
+resilience4j.circuitbreaker:
+  configs: #通用配置
+    default: # 断路器系统默认配置
+      #失败率，错误率达到或高于该值则进入open状态
+      failureRateThreshold: 50
+      #慢调用阀值，请求执行的时间大于该值时会标记为慢调用
+      slowCallDurationThreshold: 60s
+      #慢调用熔断阀值，当慢调用率达到或高于该值时，进入open状态
+      slowCallRateThreshold: 100
+      #状态滚动收集器大小，close状态时收集多少请求状态，用于计算失败率。
+      slidingWindowSize: 100
+      #状态收集器类型
+      #COUNT_BASED：根据数量计算，slidingWindowSize为次数
+      #TIME_BASED：根据时间计算，slidingWindowSize为秒数
+      slidingWindowType: COUNT_BASED
+      #计算错误率的最小请求数，不足最小调用次数不会触发任何变化。
+      minimumNumberOfCalls: 10
+      #是否自动进入halfOpen状态，默认false-一定时间后进入halfopen，ture-需要通过接口执行。
+      automaticTransitionFromOpenToHalfOpenEnabled: false
+      #进入halfOpen状态时，可以被调用次数，就算这些请求的失败率，低于设置的失败率变为close状态，否则变为open。
+      permittedNumberOfCallsInHalfOpenState: 10
+      #open状态变为half状态需要等待的时间，即熔断多久后开始尝试访问被熔断的服务。
+      waitDurationInOpenState: 60s
+      #事件缓冲区大小？？
+      eventConsumerBufferSize: 10
+      #被计为失败的异常集合，默认情况下所有异常都为失败。
+      recordExceptions:
+        - java.lang.Exception
+      #不会被计为失败的异常集合，优先级高于recordExceptions。
+      ignoreExceptions:
+        - java.lang.IllegalStateException
+  instances: #熔断器类型
+    aCustomizer: #使用默认配置
+      baseConfig: default
+    cacheCustomizer: #自定义配置
+      failureRateThreshold: 10
+resilience4j.timelimiter:
+  instances:
+    backendA:
+      timeoutDuration: 2s
+      cancelRunningFuture: true
+    backendB:
+      timeoutDuration: 1s
+      cancelRunningFuture: false
+resilience4j.thread-pool-bulkhead:
+  instances:
+    backendA:
+      # 配置最大线程数
+      maxThreadPoolSize: 1
+      # 核心线程数
+      coreThreadPoolSize: 1
+resilience4j.bulkhead:
+  instances:
+    backendB:
+      maxConcurrentCalls: 10
+spring:
+  application:
+    name: gradle-gateway
+  security:
+    user:
+      name: user
+      password: 706665237
+  cloud:
+    gateway:
+      globalcors:
+        cors-configurations:
+          '[/**]': # 匹配所有请求
+            allowedOrigins: "*" #跨域处理 允许所有的域
+            allowedMethods: # 支持的方法
+              - GET
+              - POST
+              - PUT
+              - DELETE
+            allowedHeaders: "*"
+            allowCredentials: true
+      discovery:
+        locator:
+          enabled: true
+      default-filters:
+        - name: RequestRateLimiter
+          args:
+            # 每秒允许处理的请求数量
+            redis-rate-limiter.replenishRate: 1 #  令牌桶每秒填充平均速率
+            # 每秒最大处理的请求数量
+            redis-rate-limiter.burstCapacity: 3 # 令牌桶总容量
+            # 限流策略，对应策略的Bean
+            key-resolver: "#{@ipKeyResolver}"
+        - name: CircuitBreaker #使用resilience4j断路器
+          args:
+            name: cacheCustomizer  #自定义断路器配置
+            fallbackUri: forward:/defaultFallback #异常跳转
+
+      routes:
+  redis:
+    host: localhost
+    port: 6379
+    jedis:
+      pool:
+        max-active: 10
+
+
+eureka:
+  client:
+    fetch-registry: true
+    register-with-eureka: true
+    service-url:
+      defaultZone: http://127.0.0.1:9020/eureka
+logging:
+  config: classpath:logback-spring.xml

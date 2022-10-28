@@ -1,0 +1,80 @@
+buildscript {
+    ext {
+        springBootVersion = '2.6.11'
+        springCloudVersion = '2021.0.4'
+    }
+    repositories {
+        maven { url "https://maven.aliyun.com/repository/public" }
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+    }
+}
+plugins {
+    // 引入 api 传递依赖的方法 用来代替compile
+    id 'java-library'
+    id 'org.springframework.boot' version '2.6.11' apply false
+    // Spring Boot’s dependency management can be used in a project without applying Spring Boot’s plugin to that project.
+    // First, configure the project to depend on the Spring Boot plugin but do not apply it:
+    id 'io.spring.dependency-management' version '1.0.10.RELEASE'
+}
+allprojects {
+    group 'org.facmc'
+    version '1.0-SNAPSHOT'
+    apply plugin: 'java'
+
+
+    // 指定JDK版本
+    sourceCompatibility = 1.8
+    targetCompatibility = 1.8
+    //指定编码格式
+    tasks.withType(JavaCompile) {
+        options.encoding = "UTF-8"
+    }
+
+    repositories {
+        maven { url "https://maven.aliyun.com/repository/public" }
+    }
+
+}
+
+
+subprojects {
+    //dependency-management 插件
+    apply plugin: 'io.spring.dependency-management'
+    apply plugin: 'org.springframework.boot'
+    // 可以使用api编译
+    apply plugin: 'java-library'
+    apply plugin: 'idea' /* 同上  让Gradle自动生成Intellij的项目文件*/
+
+    bootJar {
+        archiveClassifier = 'boot'
+    }
+
+    dependencyManagement {
+        imports {
+            mavenBom "org.springframework.cloud:spring-cloud-dependencies:${springCloudVersion}"
+            mavenBom "org.springframework.boot:spring-boot-dependencies:${springBootVersion}"
+
+        }
+    }
+    jar {
+        manifest.attributes provider: 'gradle'
+        enabled = true
+    }
+}
+
+
+repositories {
+    mavenLocal()
+    mavenCentral()
+}
+
+dependencies {
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.9.0'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.9.0'
+}
+
+test {
+    useJUnitPlatform()
+}

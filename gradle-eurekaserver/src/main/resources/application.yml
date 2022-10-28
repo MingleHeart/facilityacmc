@@ -1,0 +1,32 @@
+server:
+  port: 9020
+spring:
+  application:
+    name: gradle-eureka
+  security:
+    user:
+      name: user
+      password: root
+  data:
+    mongodb:
+      host: 127.0.0.1
+      port: 27017
+      username: facmc
+      password: tecom
+      database: facilityacmcdata
+eureka:
+  client:
+    #不注册自己
+    register-with-eureka: false
+    #健康检测
+    fetch-registry: false
+    service-url:
+      defaultZone: http://127.0.0.1:9020/eureka
+  server:
+    enable-self-preservation: false
+    eviction-interval-timer-in-ms: 2000
+#logback配置
+logging:
+  config: classpath:logback-spring.xml
+  level:
+    com.netflix: warn
