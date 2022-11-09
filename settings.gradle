@@ -4,4 +4,5 @@ include 'gradle-gateway'
 include 'gradle-common'
 project(":gradle-common").projectDir = file("D:\\Project\\facilityACMCenter\\IDEAProject\\project\\facilityacmc\\gradle-common")
 include 'gradle-service-user'
+include 'gradle-oauth2'
 

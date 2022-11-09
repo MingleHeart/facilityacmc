@@ -3,10 +3,10 @@ server:
 spring:
   application:
     name: gradle-eureka
-  security:
-    user:
-      name: user
-      password: root
+  #  security:
+  #    user:
+  #      name: user
+  #      password: root
   data:
     mongodb:
       host: 127.0.0.1

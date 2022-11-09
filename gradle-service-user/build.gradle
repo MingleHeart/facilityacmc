@@ -14,7 +14,6 @@ dependencies {
             project(":gradle-common"),
             'org.springframework.boot:spring-boot-starter-web',
             'org.springframework.boot:spring-boot-starter-websocket:2.6.11',
-            'org.springframework.security.oauth.boot:spring-security-oauth2-autoconfigure',
             'org.springframework.cloud:spring-cloud-starter-netflix-eureka-client',
             'org.springframework.boot:spring-boot-starter-amqp',
             'org.springframework.boot:spring-boot-starter-data-redis',
@@ -22,6 +21,7 @@ dependencies {
             'org.projectlombok:lombok:1.18.24',
             'redis.clients:jedis',
             'com.baomidou:mybatis-plus-boot-starter:3.5.2',
+
             'org.apache.commons:commons-pool2:2.11.1',
             'org.springframework.boot:spring-boot-starter-data-mongodb',
             'com.alibaba:fastjson:2.0.14',

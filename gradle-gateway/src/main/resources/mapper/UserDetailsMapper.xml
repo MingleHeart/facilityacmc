@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="org.facmc.gateway.mapper.UserDetailsMapper">
+    <resultMap id="userSearch" type="org.facmc.gateway.pojo.User">
+        <id column="id" property="id"/>
+        <result column="user_name" property="userName"/>
+        <result column="r_name" property="RName"/>
+        <result column="user_com" property="userCom"/>
+        <result column="is_enable" property="isEnable"/>
+        <result column="encryption" property="encryption"/>
+        <result column="belong_id" property="belongId"/>
+        <result column="user_permission" property="userPermission"/>
+    </resultMap>
+
+    <select id="searchUserByUsername" resultMap="userSearch">
+        select us.id,
+               us.user_name,
+               us.r_name,
+               us.user_com,
+               us.is_enable,
+               us.encryption,
+               us.belong_id,
+               per.user_permission
+        from fac_user us
+                 join fac_user_permission per on us.id = per.id
+        where us.user_name = #{username}
+    </select>
+</mapper>

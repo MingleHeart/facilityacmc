@@ -13,9 +13,10 @@ import org.facmc.common.utils.IPUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.LocalVariableTableParameterNameDiscoverer;
 import org.springframework.data.mongodb.core.MongoTemplate;
+import org.springframework.http.server.reactive.ServerHttpRequest;
 import org.springframework.stereotype.Component;
+import reactor.core.publisher.Mono;
 
-import javax.servlet.http.HttpServletRequest;
 import java.lang.reflect.Method;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -80,9 +81,10 @@ public class LogAspects {
             sysLog.setParams(params);
         }
         // 获取request
-        HttpServletRequest request = HttpContextUtils.getHttpServletRequest();
+
+        Mono<ServerHttpRequest> request = HttpContextUtils.getRequest();
         // 设置IP地址
-        sysLog.setIp(IPUtils.getIpAddr(request));
+        sysLog.setIp(IPUtils.getIpAddr((ServerHttpRequest) request));
         // 模拟一个用户名
 //        SecurityUserDetails userDetails = (SecurityUserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 //        Long userId = Long.parseLong(userDetails.getUsername());

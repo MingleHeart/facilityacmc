@@ -1,30 +1,11 @@
 server:
-  port: 9025
-
-eureka:
-  client:
-    service-url:
-      defaultZone: http://127.0.0.1:9020/eureka
-    fetch-registry: true
-    register-with-eureka: true
+  port: 9026
 spring:
-  session:
-    store-type: redis
+  main:
+    web-application-type: reactive
+    allow-bean-definition-overriding: true
   application:
-    name: gradle-userservice
-  rabbitmq:
-    virtual-host: /
-    username: root
-    password: root
-    host: 127.0.0.1
-    port: 5672
-  data:
-    mongodb:
-      host: 127.0.0.1
-      port: 27017
-      username: facmc
-      password: tecom
-      database: facilityacmcdata
+    name: gradle-oauth2
   redis:
     host: 127.0.0.1
     port: 6379
@@ -65,19 +46,16 @@ spring:
     dbcp2:
       max-idle: 10
       initial-size: 5
-#  security:
-#    user:
-#      name: admin
-#      password: 706665237
-
+eureka:
+  client:
+    service-url:
+      defaultZone: http://127.0.0.1:9020/eureka
+    fetch-registry: true
+    register-with-eureka: true
+#logback配置
+logging:
+  config: classpath:logback-spring.xml
 mybatis-plus:
   mapper-locations: classpath:mapper/*.xml
   configuration:
     map-underscore-to-camel-case: true
-#logback配置
-logging:
-  config: classpath:logback-spring.xml
-  level:
-    org.mybatis: debug
-    mapper: debug
-    com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver: WARN

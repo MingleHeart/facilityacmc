@@ -5,39 +5,36 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="312175d6-c3e5-44ab-a9c8-34b9592f43fe" name="变更" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gradle-common/src/main/java/org/facmc/common/config/LogAspects.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gradle-common/src/main/java/org/facmc/common/pojo/SysLog.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gradle-common/src/main/java/org/facmc/common/utils/HttpContextUtils.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gradle-common/src/main/java/org/facmc/common/utils/IPUtils.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gradle-common/src/main/java/org/facmc/common/utils/IdWorker.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gradle-common/src/main/java/org/facmc/common/utils/Md5SaltUtils.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gradle-common/src/main/java/org/facmc/common/utils/SnowFlake.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gradle-eurekaserver/src/main/resources/application.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gradle-eurekaserver/src/main/resources/logback-spring.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gradle-service-user/src/main/java/org/facmc/service/user/UserServiceApplication.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gradle-service-user/src/main/java/org/facmc/service/user/config/AuthorizationServerConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gradle-service-user/src/main/java/org/facmc/service/user/config/WebSecurityConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gradle-service-user/src/main/java/org/facmc/service/user/controller/LoginController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gradle-service-user/src/main/java/org/facmc/service/user/mapper/UserServiceMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gradle-service-user/src/main/java/org/facmc/service/user/pojo/User.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gradle-service-user/src/main/java/org/facmc/service/user/service/UserService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gradle-service-user/src/main/java/org/facmc/service/user/service/impl/UserServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gradle-service-user/src/main/resources/application.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gradle-service-user/src/main/resources/logback-spring.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gradle-service-user/src/main/resources/mapper/UserServiceMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gradlew" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gradlew.bat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/settings.gradle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/sqldialects.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gradle-common/src/main/java/org/facmc/common/pojo/User.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gradle-gateway/src/main/java/org/facmc/gateway/config/CrossConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gradle-gateway/src/main/java/org/facmc/gateway/config/SecurityConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gradle-gateway/src/main/java/org/facmc/gateway/controller/UserLoginController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gradle-gateway/src/main/java/org/facmc/gateway/mapper/UserDetailsMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gradle-gateway/src/main/java/org/facmc/gateway/pojo/CustomUserDetails.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gradle-gateway/src/main/java/org/facmc/gateway/pojo/User.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gradle-gateway/src/main/java/org/facmc/gateway/service/impl/UserDetailsServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gradle-gateway/src/main/resources/mapper/UserDetailsMapper.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gradle-oauth2/build.gradle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gradle-oauth2/src/main/java/org/facmc/oauth2/OauthServerApplication.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gradle-oauth2/src/main/resources/logback-spring.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gradle-oauth2/src/test/java/org/facmc/oauth/EncodeTestCase.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gradle-common/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/gradle-common/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gradle-common/src/main/java/org/facmc/common/config/LogAspects.java" beforeDir="false" afterPath="$PROJECT_DIR$/gradle-common/src/main/java/org/facmc/common/config/LogAspects.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gradle-common/src/main/java/org/facmc/common/utils/HttpContextUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/gradle-common/src/main/java/org/facmc/common/utils/HttpContextUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gradle-common/src/main/java/org/facmc/common/utils/IPUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/gradle-common/src/main/java/org/facmc/common/utils/IPUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gradle-common/src/main/java/org/facmc/common/utils/Md5SaltUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/gradle-common/src/main/java/org/facmc/common/utils/Md5SaltUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gradle-eurekaserver/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/gradle-eurekaserver/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gradle-gateway/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/gradle-gateway/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gradle-gateway/src/main/java/org/facmc/gateway/config/RedisRateLimiterConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/gradle-gateway/src/main/java/org/facmc/gateway/config/RedisRateLimiterConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gradle-gateway/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/gradle-gateway/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gradle-service-user/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/gradle-service-user/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gradle-service-user/src/main/java/org/facmc/service/user/config/AuthorizationServerConfig.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gradle-service-user/src/main/java/org/facmc/service/user/config/WebSecurityConfig.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gradle-service-user/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/gradle-service-user/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/settings.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/settings.gradle" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -167,14 +164,20 @@
   <component name="OptimizeOnSaveOptions">
     <option name="myRunOnSave" value="true" />
   </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
+  </component>
   <component name="ProjectId" id="2GiKmc95rOdCEAxl4rS22q55K2A" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="autoscrollFromSource" value="false" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
     "RequestMappingsPanelOrder0": "0",
     "RequestMappingsPanelOrder1": "1",
     "RequestMappingsPanelWidth0": "75",
@@ -184,17 +187,19 @@
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
     "jdk.selected.JAVA_MODULE": "1.8",
-    "last_opened_file_path": "D:/Project/facilityACMCenter/IDEAProject/project/facilityacmc/gradle-common/src/main/java/org/facmc/common/utils",
+    "last_opened_file_path": "D:/Project/facilityACMCenter/IDEAProject/project/facilityacmc/gradle-oauth2/src/main/resources",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
     "project.structure.last.edited": "库",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.68505746",
     "rearrange.code.on.save": "true",
+    "run.code.analysis.last.selected.profile": "pProject Default",
     "settings.editor.selected.configurable": "reference.settingsdialog.project.gradle",
-    "spring.configuration.checksum": "f660705dc9819be0dc7ddea995924657"
+    "spring.configuration.checksum": "9be52d0f1cd4b63fd130d172084bd0f5"
   },
   "keyToStringList": {
     "DatabaseDriversLRU": [
@@ -203,15 +208,23 @@
     ]
   }
 }]]></component>
+  <component name="ReactorSettings">
+    <option name="notificationShown" value="true" />
+  </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\Project\facilityACMCenter\IDEAProject\project\facilityacmc\gradle-oauth2\src\main\resources" />
       <recent name="D:\Project\facilityACMCenter\IDEAProject\project\facilityacmc\gradle-common\src\main\java\org\facmc\common\utils" />
       <recent name="D:\Project\facilityACMCenter\IDEAProject\project\facilityacmc\gradle-gateway\src\main\resources" />
       <recent name="D:\Project\facilityACMCenter\IDEAProject\facilityacmc\gradle-gateway\src\main\resources" />
       <recent name="D:\Project\facilityACMCenter\IDEAProject\facilityacmc\gradle-eurekaserver\src\main\resources" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\Project\facilityACMCenter\IDEAProject\project\facilityacmc\gradle-gateway\src\main\resources" />
       <recent name="D:\Project\facilityACMCenter\IDEAProject\project\facilityacmc\gradle-common\src\main\java\org\facmc\common\config" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="org.facmc.common.pojo" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -221,7 +234,30 @@
       </set>
     </option>
   </component>
-  <component name="RunManager" selected="Spring Boot.EurekaApplication">
+  <component name="RunManager" selected="Spring Boot.GatewayApplication">
+    <configuration name="EncodeTestCase.encode" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":gradle-oauth2:test" />
+            <option value="--tests" />
+            <option value="&quot;EncodeTestCase.encode&quot;" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <method v="2" />
+    </configuration>
     <configuration name="facilityacmc [buildDependents]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -243,6 +279,34 @@
       <DebugAllEnabled>false</DebugAllEnabled>
       <method v="2" />
     </configuration>
+    <configuration name="EncodeTestCase" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="facilityacmc.gradle-oauth2.test" />
+      <shortenClasspath name="MANIFEST" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.facmc.oauth.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="org.facmc.oauth" />
+      <option name="MAIN_CLASS_NAME" value="org.facmc.oauth.EncodeTestCase" />
+      <option name="METHOD_NAME" value="" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="EncodeTestCase.encode" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="facilityacmc.gradle-oauth2.test" />
+      <shortenClasspath name="MANIFEST" />
+      <option name="PACKAGE_NAME" value="org.facmc.oauth" />
+      <option name="MAIN_CLASS_NAME" value="org.facmc.oauth.EncodeTestCase" />
+      <option name="METHOD_NAME" value="encode" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="EurekaApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
       <option name="ACTIVE_PROFILES" />
       <module name="facilityacmc.gradle-eurekaserver.main" />
@@ -255,7 +319,17 @@
     <configuration name="GatewayApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
       <option name="ACTIVE_PROFILES" />
       <module name="facilityacmc.gradle-gateway.main" />
+      <option name="SHORTEN_COMMAND_LINE" value="MANIFEST" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="org.facmc.gateway.GatewayApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="OauthServerApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <option name="ACTIVE_PROFILES" />
+      <module name="facilityacmc.gradle-oauth2.main" />
+      <option name="SHORTEN_COMMAND_LINE" value="MANIFEST" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="org.facmc.oauth2.OauthServerApplication" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -274,13 +348,20 @@
       </method>
     </configuration>
     <list>
+      <item itemvalue="Gradle.EncodeTestCase.encode" />
       <item itemvalue="Gradle.facilityacmc [buildDependents]" />
+      <item itemvalue="JUnit.EncodeTestCase" />
+      <item itemvalue="JUnit.EncodeTestCase.encode" />
+      <item itemvalue="Spring Boot.OauthServerApplication" />
       <item itemvalue="Spring Boot.GatewayApplication" />
       <item itemvalue="Spring Boot.EurekaApplication" />
       <item itemvalue="Spring Boot.UserServiceApplication" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.EncodeTestCase.encode" />
+        <item itemvalue="JUnit.EncodeTestCase" />
+        <item itemvalue="Gradle.EncodeTestCase.encode" />
         <item itemvalue="Spring Boot.UserServiceApplication" />
         <item itemvalue="Gradle.facilityacmc [buildDependents]" />
       </list>
@@ -295,7 +376,8 @@
       <option name="presentableId" value="Default" />
       <updated>1666866124570</updated>
       <workItem from="1666866125857" duration="6322000" />
-      <workItem from="1666924354414" duration="9539000" />
+      <workItem from="1666924354414" duration="14143000" />
+      <workItem from="1667869236726" duration="32461000" />
     </task>
     <servers />
   </component>
@@ -312,5 +394,28 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/gradle-gateway/src/main/java/org/facmc/gateway/service/impl/UserDetailsServiceImpl.java</url>
+          <line>21</line>
+          <option name="timeStamp" value="11" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/gradle-gateway/src/main/java/org/facmc/gateway/service/impl/UserDetailsServiceImpl.java</url>
+          <line>25</line>
+          <option name="timeStamp" value="12" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
 </project>

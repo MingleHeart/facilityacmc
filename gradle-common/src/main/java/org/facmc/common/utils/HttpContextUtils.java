@@ -1,13 +1,13 @@
 package org.facmc.common.utils;
 
-import org.springframework.web.context.request.RequestContextHolder;
-import org.springframework.web.context.request.ServletRequestAttributes;
-
-import javax.servlet.http.HttpServletRequest;
+import org.springframework.http.server.reactive.ServerHttpRequest;
+import reactor.core.publisher.Mono;
 
 public class HttpContextUtils {
-    public static HttpServletRequest getHttpServletRequest() {
-        return ((ServletRequestAttributes) RequestContextHolder.getRequestAttributes()).getRequest();
+    public static final Class<ServerHttpRequest> CONTEXT_KEY = ServerHttpRequest.class;
+
+    public static Mono<ServerHttpRequest> getRequest() {
+        return Mono.deferContextual(contextView -> Mono.just(contextView.get(CONTEXT_KEY)));
     }
 }
 

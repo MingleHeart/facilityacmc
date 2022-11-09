@@ -14,13 +14,11 @@ dependencies {
             'org.projectlombok:lombok:1.18.24',
             'org.springframework.boot:spring-boot-starter-data-redis',
             'org.springframework.session:spring-session-data-redis',
-            'org.springframework.boot:spring-boot-starter-web',
-            'org.springframework.boot:spring-boot-starter-websocket:2.6.11',
+            'org.springframework.boot:spring-boot-starter-webflux',
             'com.alibaba:fastjson:2.0.14',
             'redis.clients:jedis:4.3.0',
             'org.springframework.boot:spring-boot-starter-data-mongodb',
             'org.aspectj:aspectjweaver:1.9.9.1',
-            'org.springframework.cloud:spring-cloud-starter-netflix-eureka-client'
 
     )
     testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.1'

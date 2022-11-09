@@ -6,6 +6,8 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import reactor.core.publisher.Mono;
 
+import java.util.Objects;
+
 @Configuration
 public class RedisRateLimiterConfig {
 
@@ -21,11 +23,12 @@ public class RedisRateLimiterConfig {
 
     /**
      * ip限流
+     *
      * @return
      */
     @Bean
     public KeyResolver ipKeyResolver() {
-        return exchange -> Mono.just(exchange.getRequest().getRemoteAddress().getHostName());
+        return exchange -> Mono.just(Objects.requireNonNull(exchange.getRequest().getRemoteAddress()).getHostName());
     }
 
     /**
