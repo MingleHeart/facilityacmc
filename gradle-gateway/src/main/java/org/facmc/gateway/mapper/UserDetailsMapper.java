@@ -12,4 +12,5 @@ public interface UserDetailsMapper extends BaseMapper<User> {
      * @return User MAP:userSearch
      */
     public User searchUserByUsername(String username);
+
 }

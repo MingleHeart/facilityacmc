@@ -1,6 +1,7 @@
 package org.facmc.gateway.service.impl;
 
 
+import lombok.extern.log4j.Log4j2;
 import org.facmc.gateway.mapper.UserDetailsMapper;
 import org.facmc.gateway.pojo.CustomUserDetails;
 import org.facmc.gateway.pojo.User;
@@ -12,7 +13,8 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
 @Service
-public class UserDetailsServiceImpl implements UserDetailsService {
+@Log4j2
+public class UserDetailsServiceImpl implements UserDetailsService, org.facmc.gateway.service.UserDetailsService {
 
     @Autowired
     private UserDetailsMapper userDetailsMapper;
@@ -32,5 +34,16 @@ public class UserDetailsServiceImpl implements UserDetailsService {
         }
         return new CustomUserDetails(user.getId(), user.getUserName(), user.getIsEnable(), user.getEncryption(),
                 AuthorityUtils.commaSeparatedStringToAuthorityList("normal"));
+    }
+
+    @Override
+    public User searchUserByUsername(String username) {
+        User user = null;
+        try {
+            user = userDetailsMapper.searchUserByUsername(username);
+        } catch (Exception e) {
+            log.error(e.toString(), username);
+        }
+        return user;
     }
 }

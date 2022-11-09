@@ -9,6 +9,7 @@ import org.springframework.security.config.web.server.ServerHttpSecurity;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.server.SecurityWebFilterChain;
+import org.springframework.security.web.session.HttpSessionEventPublisher;
 
 @EnableGlobalMethodSecurity(prePostEnabled = true)
 @EnableWebFluxSecurity
@@ -30,7 +31,7 @@ public class SecurityConfig {
         httpSecurity.formLogin();
         httpSecurity
                 .authorizeExchange()
-                .pathMatchers("/api/test").permitAll()
+                .pathMatchers("/api/login").permitAll()
                 .pathMatchers(HttpMethod.OPTIONS).permitAll()
                 .anyExchange().authenticated()
                 .and()
@@ -68,4 +69,9 @@ public class SecurityConfig {
     }
 
 
+    // 对并发session进行管理
+    @Bean
+    public HttpSessionEventPublisher httpSessionEventPublisher() {
+        return new HttpSessionEventPublisher();
+    }
 }
