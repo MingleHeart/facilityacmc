@@ -95,6 +95,10 @@ spring:
             fallbackUri: "forward:/defaultFallback" #异常跳转
 
       routes:
+        - id: service-user
+          uri: lb://gradle-userservice
+          predicates:
+            - Path=/api/user/service/**
   #        - id: oauth-test
   #          uri: lb://gradle-oauth2
   #          #路由条件

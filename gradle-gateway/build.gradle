@@ -23,6 +23,7 @@ dependencies {
             'com.alibaba:druid-spring-boot-starter:1.2.13-SNSAPSHOT',
             'mysql:mysql-connector-java',
             'com.alibaba:fastjson:2.0.14',
+            'org.springframework.boot:spring-boot-devtools',
             'com.baomidou:mybatis-plus-boot-starter:3.5.2',
             'org.springframework.boot:spring-boot-starter-data-mongodb',
             'org.springframework.boot:spring-boot-starter-webflux',

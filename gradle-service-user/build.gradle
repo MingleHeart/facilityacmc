@@ -21,7 +21,7 @@ dependencies {
             'org.projectlombok:lombok:1.18.24',
             'redis.clients:jedis',
             'com.baomidou:mybatis-plus-boot-starter:3.5.2',
-
+            'org.springframework.boot:spring-boot-devtools',
             'org.apache.commons:commons-pool2:2.11.1',
             'org.springframework.boot:spring-boot-starter-data-mongodb',
             'com.alibaba:fastjson:2.0.14',

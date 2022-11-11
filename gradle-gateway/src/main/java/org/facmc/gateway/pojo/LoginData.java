@@ -10,5 +10,4 @@ import lombok.Setter;
 public class LoginData {
     private String username;
     private String password;
-    private String loginType;
 }

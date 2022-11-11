@@ -1,7 +1,6 @@
 package org.facmc.gateway.config;
 
 import lombok.extern.log4j.Log4j2;
-import org.apache.commons.lang.StringUtils;
 import org.facmc.gateway.pojo.LoginData;
 import org.facmc.gateway.service.impl.UserDetailsServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,7 +9,6 @@ import org.springframework.security.authentication.AuthenticationServiceExceptio
 import org.springframework.security.authentication.ReactiveAuthenticationManager;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Component;
 import reactor.core.publisher.Mono;
 
@@ -18,8 +16,6 @@ import reactor.core.publisher.Mono;
 @Component
 @Primary
 public class AuthenticationManager implements ReactiveAuthenticationManager {
-    @Autowired
-    private PasswordEncoder passwordEncoder;
     @Autowired
     private UserDetailsServiceImpl userDetailsService;
 
@@ -35,10 +31,6 @@ public class AuthenticationManager implements ReactiveAuthenticationManager {
         LoginData loginData = authenticationToken.getLoginData();
         if (loginData == null) {
             throw new AuthenticationServiceException("无登录参数");
-        }
-        String loginType = loginData.getLoginType();
-        if (StringUtils.isBlank(loginType)) {
-            throw new AuthenticationServiceException("登录方式为空");
         }
 
         //获取用户

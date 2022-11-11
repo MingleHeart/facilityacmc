@@ -8,6 +8,9 @@ eureka:
     fetch-registry: true
     register-with-eureka: true
 spring:
+  main:
+    web-application-type: reactive
+    allow-bean-definition-overriding: true
   session:
     store-type: redis
   application:
@@ -42,13 +45,13 @@ spring:
       filters: stat,wall     # 底层开启功能，stat（sql监控），wall（防火墙）
 
       stat-view-servlet: # 配置监控页功能
-        enabled: true
+        enabled: false
         login-username: admin
         login-password: admin
         resetEnable: false
 
       web-stat-filter: # 监控web
-        enabled: true
+        enabled: false
         urlPattern: /*
         exclusions: '*.js,*.gif,*.jpg,*.png,*.css,*.ico,/druid/*'
 
