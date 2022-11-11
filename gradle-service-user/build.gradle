@@ -12,7 +12,7 @@ repositories {
 dependencies {
     implementation(
             project(":gradle-common"),
-            'org.springframework.boot:spring-boot-starter-web',
+            'org.springframework.boot:spring-boot-starter-webflux',
             'org.springframework.boot:spring-boot-starter-websocket:2.6.11',
             'org.springframework.cloud:spring-cloud-starter-netflix-eureka-client',
             'org.springframework.boot:spring-boot-starter-amqp',

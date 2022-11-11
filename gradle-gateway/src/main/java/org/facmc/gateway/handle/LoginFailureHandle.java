@@ -1,2 +1,4 @@
-package org.facmc.gateway.handle;public class LoginFailHandle {
+package org.facmc.gateway.handle;
+
+public class LoginFailureHandle {
 }

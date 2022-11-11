@@ -1,9 +1,8 @@
 package org.facmc.gateway.service;
 
 import org.facmc.gateway.pojo.User;
-import org.springframework.stereotype.Service;
 
-@Service
-public interface UserDetailsService {
+
+public interface UserService {
     public User searchUserByUsername(String username);
 }
