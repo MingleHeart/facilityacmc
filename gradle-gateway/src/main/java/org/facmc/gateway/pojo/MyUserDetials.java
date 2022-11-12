@@ -28,6 +28,13 @@ public class MyUserDetials implements UserDetails {
         this.userId = userId;
     }
 
+    public MyUserDetials(String username, String password, Collection<? extends GrantedAuthority> authorities, int isEnable) {
+        this.username = username;
+        this.password = password;
+        this.authorities = authorities;
+        this.isEnable = isEnable;
+    }
+
     public List<AuthRole> getRoles() {
         return roles;
     }

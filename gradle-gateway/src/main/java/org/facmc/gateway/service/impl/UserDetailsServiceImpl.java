@@ -45,7 +45,7 @@ public class UserDetailsServiceImpl implements ReactiveUserDetailsService {
         }
         if (user.getUserPermission() == 2) {
             return Mono.just(new MyUserDetials(username, user.getEncryption(),
-                    AuthorityUtils.commaSeparatedStringToAuthorityList("super-admin"), user.getIsEnable(), user.getId()));
+                    AuthorityUtils.commaSeparatedStringToAuthorityList("super-admin,admin,normal"), user.getIsEnable(), user.getId()));
 //            return Mono.just(org.springframework.security.core.userdetails.User
 //                    .withUsername(username)
 //                    .password(user.getEncryption())
@@ -55,19 +55,22 @@ public class UserDetailsServiceImpl implements ReactiveUserDetailsService {
 //            return Mono.just(new org.springframework.security.core.userdetails.User(username, user.getEncryption(),
 //                    AuthorityUtils.commaSeparatedStringToAuthorityList("super-admin")));
         } else if (user.getUserPermission() == 1) {
-            return Mono.just(org.springframework.security.core.userdetails.User
-                    .withUsername(username)
-                    .password(user.getEncryption())
-                    .roles("admin", "normal")
-                    .build()
-            );
+            return Mono.just(new MyUserDetials(username, user.getEncryption(),
+                    AuthorityUtils.commaSeparatedStringToAuthorityList("admin,normal"), user.getIsEnable(), user.getId()));
+//            return Mono.just(org.springframework.security.core.userdetails.User
+//                    .withUsername(username)
+//                    .password(user.getEncryption())
+//                    .roles("admin", "normal")
+//                    .build()
+//            );
         }
-
-        return Mono.just(org.springframework.security.core.userdetails.User
-                .withUsername(username)
-                .password(user.getEncryption())
-                .roles("normal")
-                .build()
-        );
+        return Mono.just(new MyUserDetials(username, user.getEncryption(),
+                AuthorityUtils.commaSeparatedStringToAuthorityList("normal"), user.getIsEnable(), user.getId()));
+//        return Mono.just(org.springframework.security.core.userdetails.User
+//                .withUsername(username)
+//                .password(user.getEncryption())
+//                .roles("normal")
+//                .build()
+//        );
     }
 }

@@ -5,28 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="312175d6-c3e5-44ab-a9c8-34b9592f43fe" name="变更" comment="">
-      <change afterPath="$PROJECT_DIR$/gradle-gateway/src/main/java/org/facmc/gateway/config/SecurityContextRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gradle-gateway/src/main/java/org/facmc/gateway/constant/AuthConstant.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gradle-gateway/src/main/java/org/facmc/gateway/pojo/AuthRole.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gradle-gateway/src/main/java/org/facmc/gateway/pojo/MyUserDetials.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/3059ac28-6d5a-4744-a076-472c34b66985.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/3059ac28-6d5a-4744-a076-472c34b66985.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gradle-gateway/src/main/java/org/facmc/gateway/pojo/LoginResult.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gradle-gateway/src/main/java/org/facmc/gateway/pojo/MyToken.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gradle-gateway/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/gradle-gateway/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gradle-gateway/src/main/java/org/facmc/gateway/config/AuthenticationManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/gradle-gateway/src/main/java/org/facmc/gateway/config/AuthenticationManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gradle-gateway/src/main/java/org/facmc/gateway/config/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/gradle-gateway/src/main/java/org/facmc/gateway/config/SecurityConfig.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/gradle-gateway/src/main/java/org/facmc/gateway/handle/LoginSuccessHandle.java" beforeDir="false" afterPath="$PROJECT_DIR$/gradle-gateway/src/main/java/org/facmc/gateway/handle/LoginSuccessHandle.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gradle-gateway/src/main/java/org/facmc/gateway/pojo/LoginData.java" beforeDir="false" afterPath="$PROJECT_DIR$/gradle-gateway/src/main/java/org/facmc/gateway/pojo/LoginData.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gradle-gateway/src/main/java/org/facmc/gateway/pojo/MyUserDetials.java" beforeDir="false" afterPath="$PROJECT_DIR$/gradle-gateway/src/main/java/org/facmc/gateway/pojo/MyUserDetials.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/gradle-gateway/src/main/java/org/facmc/gateway/service/impl/UserDetailsServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/gradle-gateway/src/main/java/org/facmc/gateway/service/impl/UserDetailsServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gradle-gateway/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/gradle-gateway/src/main/resources/application.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gradle-service-user/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/gradle-service-user/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gradle-service-user/src/main/java/org/facmc/service/user/UserServiceApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/gradle-service-user/src/main/java/org/facmc/service/user/UserServiceApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gradle-service-user/src/main/java/org/facmc/service/user/controller/UserServiceController.java" beforeDir="false" afterPath="$PROJECT_DIR$/gradle-service-user/src/main/java/org/facmc/service/user/controller/UserServiceController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gradle-service-user/src/main/java/org/facmc/service/user/mapper/UserServiceMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/gradle-service-user/src/main/java/org/facmc/service/user/mapper/UserServiceMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gradle-service-user/src/main/java/org/facmc/service/user/pojo/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/gradle-service-user/src/main/java/org/facmc/service/user/pojo/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gradle-service-user/src/main/java/org/facmc/service/user/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/gradle-service-user/src/main/java/org/facmc/service/user/service/UserService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gradle-service-user/src/main/java/org/facmc/service/user/service/impl/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/gradle-service-user/src/main/java/org/facmc/service/user/service/impl/UserServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gradle-service-user/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/gradle-service-user/src/main/resources/application.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gradle-service-user/src/main/resources/mapper/UserServiceMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/gradle-service-user/src/main/resources/mapper/UserServiceMapper.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -383,7 +367,7 @@
       <workItem from="1668150999739" duration="62000" />
       <workItem from="1668151071080" duration="192000" />
       <workItem from="1668151274563" duration="167000" />
-      <workItem from="1668151452051" duration="9378000" />
+      <workItem from="1668151452051" duration="12957000" />
     </task>
     <servers />
   </component>
@@ -413,16 +397,6 @@
           <option name="timeStamp" value="33" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/gradle-gateway/src/main/java/org/facmc/gateway/config/AuthenticationConverter.java</url>
-          <line>26</line>
-          <option name="timeStamp" value="42" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/gradle-gateway/src/main/java/org/facmc/gateway/service/impl/UserDetailsServiceImpl.java</url>
-          <line>41</line>
-          <option name="timeStamp" value="43" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/gradle-gateway/src/main/java/org/facmc/gateway/config/AuthenticationManager.java</url>
           <line>36</line>
           <option name="timeStamp" value="45" />
@@ -435,7 +409,7 @@
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/gradle-gateway/src/main/java/org/facmc/gateway/handle/LoginSuccessHandle.java</url>
           <line>43</line>
-          <option name="timeStamp" value="49" />
+          <option name="timeStamp" value="51" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
