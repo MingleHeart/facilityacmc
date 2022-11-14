@@ -55,16 +55,13 @@ resilience4j.bulkhead:
   instances:
     backendB:
       maxConcurrentCalls: 10
-jwt:
-  tokenHeader: Authorization #JWT存储的请求头
-  secret: mall-admin-secret #JWT加解密使用的密钥【私钥】
-  expiration: 604800 #JWT的超期限时间(60*60*24*7)
-  tokenHead: 'Bearer '  #JWT负载中拿到开头
+
 
 spring:
   main:
     web-application-type: reactive
     allow-bean-definition-overriding: true
+    allow-circular-references: true
   application:
     name: gradle-gateway
   data:

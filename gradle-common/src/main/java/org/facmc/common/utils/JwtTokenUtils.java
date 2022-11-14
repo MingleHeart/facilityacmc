@@ -1,14 +1,14 @@
-package org.facmc.gateway.utils;
+package org.facmc.common.utils;
 
 import cn.hutool.core.date.DateUtil;
 import cn.hutool.core.util.StrUtil;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
+import org.facmc.common.pojo.MyUserDetials;
+import org.facmc.constant.AuthConstant;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Value;
-import org.springframework.security.core.userdetails.UserDetails;
 
 import java.util.Date;
 import java.util.HashMap;
@@ -28,12 +28,12 @@ public class JwtTokenUtils {
     private static final Logger LOGGER = LoggerFactory.getLogger(JwtTokenUtils.class);
     private static final String CLAIM_KEY_USERNAME = "sub";
     private static final String CLAIM_KEY_CREATED = "created";
-    @Value("${jwt.secret}")
-    private String secret;
-    @Value("${jwt.expiration}")
-    private Long expiration;
-    @Value("${jwt.tokenHead}")
-    private String tokenHead;
+//    @Value("${jwt.secret}")
+//    private String secret;
+//    @Value("${jwt.expiration}")
+//    private Long expiration;
+//    @Value("${jwt.tokenHead}")
+//    private String tokenHead;
 
     /**
      * 根据负责生成JWT的token
@@ -42,18 +42,18 @@ public class JwtTokenUtils {
         return Jwts.builder()
                 .setClaims(claims)
                 .setExpiration(generateExpirationDate())
-                .signWith(SignatureAlgorithm.HS512, secret)
+                .signWith(SignatureAlgorithm.HS512, AuthConstant.TOKEN_HEAD)
                 .compact();
     }
 
     /**
      * 从token中获取JWT中的负载
      */
-    private Claims getClaimsFromToken(String token) {
+    public Claims getClaimsFromToken(String token) {
         Claims claims = null;
         try {
             claims = Jwts.parser()
-                    .setSigningKey(secret)
+                    .setSigningKey(AuthConstant.TOKEN_HEAD)
                     .parseClaimsJws(token)
                     .getBody();
         } catch (Exception e) {
@@ -66,7 +66,7 @@ public class JwtTokenUtils {
      * 生成token的过期时间
      */
     private Date generateExpirationDate() {
-        return new Date(System.currentTimeMillis() + expiration * 1000);
+        return new Date(System.currentTimeMillis() + AuthConstant.expiration * 1000);
     }
 
     /**
@@ -89,7 +89,7 @@ public class JwtTokenUtils {
      * @param token       客户端传入的token
      * @param userDetails 从数据库中查询出来的用户信息
      */
-    public boolean validateToken(String token, UserDetails userDetails) {
+    public boolean validateToken(String token, MyUserDetials userDetails) {
         String username = getUserNameFromToken(token);
         return username.equals(userDetails.getUsername()) && !isTokenExpired(token);
     }
@@ -113,10 +113,12 @@ public class JwtTokenUtils {
     /**
      * 根据用户信息生成token
      */
-    public String generateToken(UserDetails userDetails) {
+    public String generateToken(MyUserDetials userDetails) {
         Map<String, Object> claims = new HashMap<>();
-        claims.put(CLAIM_KEY_USERNAME, userDetails.getUsername());
-        claims.put(CLAIM_KEY_CREATED, new Date());
+        claims.put(AuthConstant.USER_ID_KEY, userDetails.getUserId());
+        claims.put(AuthConstant.USERNAME_KEY, userDetails.getUsername());
+        claims.put(AuthConstant.ROLES_STRING_KEY, userDetails.getRoles());
+        claims.put(AuthConstant.CLAIM_KEY_CREATED, new Date());
         return generateToken(claims);
     }
 
@@ -129,7 +131,7 @@ public class JwtTokenUtils {
         if (StrUtil.isEmpty(oldToken)) {
             return null;
         }
-        String token = oldToken.substring(tokenHead.length());
+        String token = oldToken.substring(AuthConstant.tokenHead.length());
         if (StrUtil.isEmpty(token)) {
             return null;
         }
@@ -146,7 +148,7 @@ public class JwtTokenUtils {
         if (tokenRefreshJustBefore(token, 30 * 60)) {
             return token;
         } else {
-            claims.put(CLAIM_KEY_CREATED, new Date());
+            claims.put(AuthConstant.CLAIM_KEY_CREATED, new Date());
             return generateToken(claims);
         }
     }
@@ -159,7 +161,7 @@ public class JwtTokenUtils {
      */
     private boolean tokenRefreshJustBefore(String token, int time) {
         Claims claims = getClaimsFromToken(token);
-        Date created = claims.get(CLAIM_KEY_CREATED, Date.class);
+        Date created = claims.get(AuthConstant.CLAIM_KEY_CREATED, Date.class);
         Date refreshDate = new Date();
         //刷新时间在创建时间的指定时间内
         if (refreshDate.after(created) && refreshDate.before(DateUtil.offsetSecond(created, time))) {

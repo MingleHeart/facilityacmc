@@ -5,12 +5,24 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="312175d6-c3e5-44ab-a9c8-34b9592f43fe" name="变更" comment="">
-      <change afterPath="$PROJECT_DIR$/gradle-gateway/src/main/java/org/facmc/gateway/pojo/LoginResult.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gradle-gateway/src/main/java/org/facmc/gateway/pojo/MyToken.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gradle-common/src/main/java/org/facmc/common/pojo/PathConfigMap.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gradle-gateway/src/main/java/org/facmc/gateway/config/MyAuthorizationManager.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gradle-common/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/gradle-common/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gradle-gateway/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/gradle-gateway/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gradle-gateway/src/main/java/org/facmc/gateway/config/AuthenticationManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/gradle-gateway/src/main/java/org/facmc/gateway/config/MyAuthenticationManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gradle-gateway/src/main/java/org/facmc/gateway/config/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/gradle-gateway/src/main/java/org/facmc/gateway/config/SecurityConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gradle-gateway/src/main/java/org/facmc/gateway/config/SecurityContextRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/gradle-gateway/src/main/java/org/facmc/gateway/config/SecurityContextRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gradle-gateway/src/main/java/org/facmc/gateway/constant/AuthConstant.java" beforeDir="false" afterPath="$PROJECT_DIR$/gradle-common/src/main/java/org/facmc/constant/AuthConstant.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gradle-gateway/src/main/java/org/facmc/gateway/handle/LoginFailureHandle.java" beforeDir="false" afterPath="$PROJECT_DIR$/gradle-gateway/src/main/java/org/facmc/gateway/handle/LoginFailureHandle.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/gradle-gateway/src/main/java/org/facmc/gateway/handle/LoginSuccessHandle.java" beforeDir="false" afterPath="$PROJECT_DIR$/gradle-gateway/src/main/java/org/facmc/gateway/handle/LoginSuccessHandle.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gradle-gateway/src/main/java/org/facmc/gateway/pojo/MyUserDetials.java" beforeDir="false" afterPath="$PROJECT_DIR$/gradle-gateway/src/main/java/org/facmc/gateway/pojo/MyUserDetials.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gradle-gateway/src/main/java/org/facmc/gateway/pojo/AuthRole.java" beforeDir="false" afterPath="$PROJECT_DIR$/gradle-common/src/main/java/org/facmc/common/pojo/AuthRole.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gradle-gateway/src/main/java/org/facmc/gateway/pojo/LoginResult.java" beforeDir="false" afterPath="$PROJECT_DIR$/gradle-gateway/src/main/java/org/facmc/gateway/pojo/LoginResult.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gradle-gateway/src/main/java/org/facmc/gateway/pojo/MyToken.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gradle-gateway/src/main/java/org/facmc/gateway/pojo/MyUserDetials.java" beforeDir="false" afterPath="$PROJECT_DIR$/gradle-common/src/main/java/org/facmc/common/pojo/MyUserDetials.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/gradle-gateway/src/main/java/org/facmc/gateway/service/impl/UserDetailsServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/gradle-gateway/src/main/java/org/facmc/gateway/service/impl/UserDetailsServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gradle-gateway/src/main/java/org/facmc/gateway/utils/JwtTokenUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/gradle-common/src/main/java/org/facmc/common/utils/JwtTokenUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gradle-gateway/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/gradle-gateway/src/main/resources/application.yml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -127,10 +139,10 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="application" />
         <option value="mybatis-mapper" />
         <option value="Interface" />
         <option value="Kotlin Class" />
+        <option value="application" />
         <option value="Class" />
       </list>
     </option>
@@ -367,7 +379,7 @@
       <workItem from="1668150999739" duration="62000" />
       <workItem from="1668151071080" duration="192000" />
       <workItem from="1668151274563" duration="167000" />
-      <workItem from="1668151452051" duration="12957000" />
+      <workItem from="1668151452051" duration="38940000" />
     </task>
     <servers />
   </component>
@@ -379,7 +391,13 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="CUSTOM_BOOLEAN_PROPERTIES">
+                <map>
+                  <entry key="Show.Git.Branches" value="false" />
+                </map>
+              </option>
+            </State>
           </value>
         </entry>
       </map>
@@ -397,19 +415,24 @@
           <option name="timeStamp" value="33" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/gradle-gateway/src/main/java/org/facmc/gateway/config/AuthenticationManager.java</url>
-          <line>36</line>
-          <option name="timeStamp" value="45" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/gradle-gateway/src/main/java/org/facmc/gateway/controller/UserLoginController.java</url>
           <line>35</line>
           <option name="timeStamp" value="48" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/gradle-gateway/src/main/java/org/facmc/gateway/handle/LoginSuccessHandle.java</url>
-          <line>43</line>
-          <option name="timeStamp" value="51" />
+          <url>file://$PROJECT_DIR$/gradle-gateway/src/main/java/org/facmc/gateway/config/SecurityContextRepository.java</url>
+          <line>58</line>
+          <option name="timeStamp" value="71" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/gradle-gateway/src/main/java/org/facmc/gateway/config/SecurityContextRepository.java</url>
+          <line>61</line>
+          <option name="timeStamp" value="72" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/gradle-gateway/src/main/java/org/facmc/gateway/config/SecurityContextRepository.java</url>
+          <line>72</line>
+          <option name="timeStamp" value="82" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

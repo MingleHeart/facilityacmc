@@ -1,4 +1,4 @@
-package org.facmc.gateway.pojo;
+package org.facmc.common.pojo;
 
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -14,18 +14,26 @@ public class MyUserDetials implements UserDetails {
     private Long userId;
     private int isEnable;
 
+    public MyUserDetials(Long userId, String username, List<AuthRole> roles) {
+        this.userId = userId;
+        this.username = username;
+        this.roles = roles;
+    }
+
     public MyUserDetials(String username, String password, Collection<? extends GrantedAuthority> authorities) {
         this.username = username;
         this.password = password;
         this.authorities = authorities;
     }
 
-    public MyUserDetials(String username, String password, Collection<? extends GrantedAuthority> authorities, int isEnable, long userId) {
+    public MyUserDetials(String username, String password, List<AuthRole> roles, int isEnable, long userId, Collection<? extends GrantedAuthority> authorities) {
         this.username = username;
         this.password = password;
-        this.authorities = authorities;
+        this.roles = roles;
         this.isEnable = isEnable;
         this.userId = userId;
+        this.authorities = authorities;
+
     }
 
     public MyUserDetials(String username, String password, Collection<? extends GrantedAuthority> authorities, int isEnable) {

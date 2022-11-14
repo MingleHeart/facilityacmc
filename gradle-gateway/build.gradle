@@ -33,7 +33,7 @@ dependencies {
             'org.springframework.session:spring-session-data-redis:2.7.0',
             'org.projectlombok:lombok:1.18.24',
             'org.springframework.cloud:spring-cloud-starter-circuitbreaker-reactor-resilience4j',
-            'cn.hutool:hutool-all:5.8.0'
+            'cn.hutool:hutool-all:5.8.9'
     )
     testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.1'
     testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.1'

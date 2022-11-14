@@ -19,7 +19,9 @@ dependencies {
             'redis.clients:jedis:4.3.0',
             'org.springframework.boot:spring-boot-starter-data-mongodb',
             'org.aspectj:aspectjweaver:1.9.9.1',
-
+            'org.springframework.boot:spring-boot-starter-security',
+            'io.jsonwebtoken:jjwt:0.9.1',
+            'cn.hutool:hutool-all:5.8.9'
     )
     testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.1'
     testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.1'
