@@ -2,6 +2,7 @@ package org.facmc.common.utils;
 
 import cn.hutool.core.date.DateUtil;
 import cn.hutool.core.util.StrUtil;
+import com.alibaba.fastjson.JSON;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
@@ -117,7 +118,8 @@ public class JwtTokenUtils {
         Map<String, Object> claims = new HashMap<>();
         claims.put(AuthConstant.USER_ID_KEY, userDetails.getUserId());
         claims.put(AuthConstant.USERNAME_KEY, userDetails.getUsername());
-        claims.put(AuthConstant.ROLES_STRING_KEY, userDetails.getRoles());
+        claims.put(AuthConstant.ROLES_STRING_KEY, JSON.toJSONString(userDetails.getRoles()));
+        claims.put(AuthConstant.AUTHORITIES, JSON.toJSONString(userDetails.getAuthorities()));
         claims.put(AuthConstant.CLAIM_KEY_CREATED, new Date());
         return generateToken(claims);
     }

@@ -2,11 +2,10 @@ package org.facmc.common.pojo;
 
 import lombok.Data;
 import lombok.experimental.Accessors;
-import org.springframework.security.core.GrantedAuthority;
 
 @Data
 @Accessors(chain = true)
-public class AuthRole implements GrantedAuthority {
+public class AuthRole {
     private String roleName;
 
     public AuthRole(String roleName) {
@@ -14,7 +13,7 @@ public class AuthRole implements GrantedAuthority {
     }
 
     @Override
-    public String getAuthority() {
-        return this.roleName;
+    public String toString() {
+        return roleName;
     }
 }

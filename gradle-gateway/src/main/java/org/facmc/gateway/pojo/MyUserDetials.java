@@ -1,10 +1,12 @@
 package org.facmc.common.pojo;
 
 import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.AuthorityUtils;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import java.util.Collection;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class MyUserDetials implements UserDetails {
     private String username;
@@ -18,6 +20,8 @@ public class MyUserDetials implements UserDetails {
         this.userId = userId;
         this.username = username;
         this.roles = roles;
+        this.authorities = AuthorityUtils.commaSeparatedStringToAuthorityList(roles.stream().map(AuthRole::getRoleName).collect(Collectors.toList())
+                .toString().replace("[", "").replace("]", ""));
     }
 
     public MyUserDetials(String username, String password, Collection<? extends GrantedAuthority> authorities) {
