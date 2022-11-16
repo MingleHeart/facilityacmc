@@ -17,12 +17,14 @@ plugins {
     // Spring Boot’s dependency management can be used in a project without applying Spring Boot’s plugin to that project.
     // First, configure the project to depend on the Spring Boot plugin but do not apply it:
     id 'io.spring.dependency-management' version '1.0.10.RELEASE'
+    id 'nebula.lint' version '17.7.0'
 }
 allprojects {
     group 'org.facmc'
     version '1.0-SNAPSHOT'
     apply plugin: 'java'
-
+    apply plugin: "nebula.lint"
+    gradleLint.rules = ['unused-dependency']
 
     // 指定JDK版本
     sourceCompatibility = 1.8

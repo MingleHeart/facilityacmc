@@ -1,11 +1,14 @@
 package org.facmc.gateway.config;
 
+import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONArray;
+import com.alibaba.fastjson.JSONObject;
 import io.jsonwebtoken.Claims;
 import org.apache.commons.lang.StringUtils;
-import org.facmc.common.pojo.AuthRole;
-import org.facmc.common.pojo.MyUserDetials;
-import org.facmc.common.utils.JwtTokenUtils;
 import org.facmc.constant.AuthConstant;
+import org.facmc.gateway.pojo.AuthRole;
+import org.facmc.gateway.pojo.MyUserDetials;
+import org.facmc.gateway.utils.JwtTokenUtils;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.server.reactive.ServerHttpRequest;
 import org.springframework.security.core.context.SecurityContext;
@@ -17,6 +20,7 @@ import reactor.core.publisher.Mono;
 
 import javax.annotation.Resource;
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * 从token获取用户
@@ -48,7 +52,17 @@ public class SecurityContextRepository implements ServerSecurityContextRepositor
         Claims claims = jwtTokenUtils.getClaimsFromToken(token);
         String username = claims.getSubject();
         long userId = claims.get(AuthConstant.USER_ID_KEY, Long.class);
-        ArrayList<AuthRole> list = claims.get(AuthConstant.ROLES_STRING_KEY, ArrayList.class);
+        String roles = claims.get(AuthConstant.ROLES_STRING_KEY, String.class);
+        String authorities = claims.get(AuthConstant.AUTHORITIES, String.class);
+        JSONArray roleArray = JSON.parseArray(roles);
+        List<AuthRole> authRoleList = new ArrayList<AuthRole>();
+        for (Object o : roleArray) {
+            JSONObject jsonObject = (JSONObject) o;
+            String role = jsonObject.getString("roleName");
+            AuthRole authRole = new AuthRole(role);
+            authRoleList.add(authRole);
+        }
+
 //        List<AuthRole> list = Arrays.stream(rolesStr.split(","))
 //                .map(roleName -> new AuthRole().setRoleName(roleName))
 //                .collect(Collectors.toList());
@@ -56,7 +70,7 @@ public class SecurityContextRepository implements ServerSecurityContextRepositor
 //                .map(roleName -> new AuthRole(roleName))
 //                .collect(Collectors.toList());
         //构建用户令牌
-        MyUserDetials userDetails = new MyUserDetials(userId, username, list);
+        MyUserDetials userDetails = new MyUserDetials(userId, username, authRoleList);
         boolean validateToken = jwtTokenUtils.validateToken(token, userDetails);
 
         AuthenticationToken authToken = new AuthenticationToken(userDetails, null, userDetails.getAuthorities());
@@ -64,13 +78,15 @@ public class SecurityContextRepository implements ServerSecurityContextRepositor
         ServerHttpRequest request = exchange.getRequest().mutate()
                 .header(AuthConstant.USER_ID_KEY, String.valueOf(userId))
                 .header(AuthConstant.USERNAME_KEY, username)
-                .header(AuthConstant.ROLES_STRING_KEY, list.toString())
+                .header(AuthConstant.ROLES_STRING_KEY, authRoleList.toString()
+                        .replace("[", "").replace("]", ""))
                 .headers(headers -> headers.remove(HttpHeaders.AUTHORIZATION))
                 .build();
         exchange.mutate().request(request).build();
-
-        System.out.println(authToken);
-        return myAuthenticationManager.authenticate(authToken)
-                .map(SecurityContextImpl::new);
+        if (authToken.isAuthenticated()) {
+            SecurityContextImpl securityContext = new SecurityContextImpl(authToken);
+            return Mono.just(securityContext);
+        }
+        return myAuthenticationManager.authenticate(authToken).map(SecurityContextImpl::new);
     }
 }

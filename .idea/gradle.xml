@@ -14,7 +14,6 @@
             <option value="$PROJECT_DIR$/gradle-common" />
             <option value="$PROJECT_DIR$/gradle-eurekaserver" />
             <option value="$PROJECT_DIR$/gradle-gateway" />
-            <option value="$PROJECT_DIR$/gradle-oauth2" />
             <option value="$PROJECT_DIR$/gradle-service-user" />
           </set>
         </option>

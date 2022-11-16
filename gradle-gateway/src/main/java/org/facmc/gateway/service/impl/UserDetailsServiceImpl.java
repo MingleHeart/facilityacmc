@@ -2,9 +2,9 @@ package org.facmc.gateway.service.impl;
 
 
 import lombok.extern.log4j.Log4j2;
-import org.facmc.common.pojo.MyUserDetials;
-import org.facmc.common.pojo.PathConfigMap;
 import org.facmc.gateway.mapper.UserDetailsMapper;
+import org.facmc.gateway.pojo.MyUserDetials;
+import org.facmc.gateway.pojo.PathConfigMap;
 import org.facmc.gateway.pojo.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisTemplate;
@@ -45,7 +45,7 @@ public class UserDetailsServiceImpl {
         if (user.getUserPermission() == 2) {
             return new MyUserDetials(username, user.getEncryption(),
                     PathConfigMap.PathMap.SUPER_ADMIN_TEMPLATE,
-                    user.getIsEnable(), user.getId(), AuthorityUtils.commaSeparatedStringToAuthorityList("super-admin,admin,normal"));
+                    user.getIsEnable(), user.getId(), AuthorityUtils.commaSeparatedStringToAuthorityList("SUPER,ADMIN,NORMAL"));
 //            return Mono.just(org.springframework.security.core.userdetails.User
 //                    .withUsername(username)
 //                    .password(user.getEncryption())
@@ -57,7 +57,7 @@ public class UserDetailsServiceImpl {
         } else if (user.getUserPermission() == 1) {
             return new MyUserDetials(username, user.getEncryption(),
                     PathConfigMap.PathMap.ADMIN_TEMPLATE,
-                    user.getIsEnable(), user.getId(), AuthorityUtils.commaSeparatedStringToAuthorityList("admin,normal"));
+                    user.getIsEnable(), user.getId(), AuthorityUtils.commaSeparatedStringToAuthorityList("ADMIN,NORMAL"));
 //            return Mono.just(org.springframework.security.core.userdetails.User
 //                    .withUsername(username)
 //                    .password(user.getEncryption())
@@ -67,7 +67,7 @@ public class UserDetailsServiceImpl {
         }
         return new MyUserDetials(username, user.getEncryption(),
                 PathConfigMap.PathMap.NORMAL_TEMPLATE,
-                user.getIsEnable(), user.getId(), AuthorityUtils.commaSeparatedStringToAuthorityList("normal"));
+                user.getIsEnable(), user.getId(), AuthorityUtils.commaSeparatedStringToAuthorityList("NORMAL"));
 //        return Mono.just(org.springframework.security.core.userdetails.User
 //                .withUsername(username)
 //                .password(user.getEncryption())

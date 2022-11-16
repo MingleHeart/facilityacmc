@@ -1,8 +1,8 @@
 package org.facmc.gateway.config;
 
 import lombok.extern.log4j.Log4j2;
-import org.facmc.common.pojo.MyUserDetials;
 import org.facmc.gateway.pojo.LoginData;
+import org.facmc.gateway.pojo.MyUserDetials;
 import org.facmc.gateway.service.impl.UserDetailsServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Primary;
@@ -28,9 +28,6 @@ public class MyAuthenticationManager implements ReactiveAuthenticationManager {
 
     @Override
     public Mono<Authentication> authenticate(Authentication authentication) {
-        if (authentication.isAuthenticated()) {
-            return Mono.just(authentication);
-        }
         //转换自定义token
         AuthenticationToken authenticationToken = (AuthenticationToken) authentication;
         log.debug("{}", authenticationToken.toString());
@@ -49,9 +46,6 @@ public class MyAuthenticationManager implements ReactiveAuthenticationManager {
         AuthenticationToken myAuthenticationToken = new AuthenticationToken(myUserDetials, authenticationToken);
         SecurityContextHolder.getContext().setAuthentication(authenticationToken);
         //获取用户
-//        Mono<UserDetails> byUsername = userDetailsService.findByUsername(loginData.getUsername());
-//        AuthenticationToken authenticationToken1 = new AuthenticationToken(byUsername.block(), authenticationToken);
-//        return Mono.just(authenticationToken1);
         return Mono.just(myAuthenticationToken);
     }
 

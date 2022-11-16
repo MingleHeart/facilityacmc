@@ -30,7 +30,7 @@ public class AuthenticationConverter extends ServerFormLoginAuthenticationConver
         if (MediaType.APPLICATION_JSON.equals(contentType) && Objects.equals(method, HttpMethod.POST)) {
             ObjectMapper mapper = new ObjectMapper();
             HttpMessageReader<Object> messageReader = new DecoderHttpMessageReader<>(new Jackson2JsonDecoder(mapper));
-            List<HttpMessageReader<?>> readers = new ArrayList<HttpMessageReader<?>>();
+            List<HttpMessageReader<?>> readers = new ArrayList<>();
             readers.add(messageReader);
             ServerRequest serverRequest = ServerRequest.create(exchange, readers);
             return serverRequest.bodyToMono(LoginData.class).map(loginData -> new AuthenticationToken(loginData.getUsername(), loginData.getPassword()));

@@ -1,4 +1,4 @@
-package org.facmc.common.pojo;
+package org.facmc.gateway.pojo;
 
 import lombok.Data;
 import lombok.experimental.Accessors;

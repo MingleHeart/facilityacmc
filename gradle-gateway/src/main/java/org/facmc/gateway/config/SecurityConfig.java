@@ -67,21 +67,20 @@ public class SecurityConfig {
 
     @Bean
     public SecurityWebFilterChain securityWebFilterChain(ServerHttpSecurity httpSecurity) {
-        httpSecurity.httpBasic()
-                .disable()
-                .formLogin()
-                .disable()
+        httpSecurity.csrf().disable()
+                .httpBasic().disable()
+                .formLogin().disable()
                 .securityContextRepository(securityContextRepository)
                 .authorizeExchange(exchange -> {
                     exchange.pathMatchers("/public/**").permitAll()
                             .pathMatchers("/api/test").permitAll()
-                            .pathMatchers("/api/user/service/**").permitAll()
+//                            .pathMatchers("/api/user/service/listUsersForSuperUser").hasRole("SUPER")
                             .pathMatchers(HttpMethod.OPTIONS).permitAll()
                             .anyExchange().access(myAuthorizationManager);
                 });
         httpSecurity.addFilterAt(authenticationWebFilter(), SecurityWebFiltersOrder.FORM_LOGIN);
-        httpSecurity.csrf(csrfSpec -> csrfSpec
-                .disable().headers().disable()).cors();
+//        httpSecurity.csrf(csrfSpec -> csrfSpec
+//                .disable().headers().disable());
 
         httpSecurity.cors(cors -> cors.configurationSource( // 对跨域请求进行配置
                 exchange -> {

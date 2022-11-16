@@ -1,4 +1,4 @@
-package org.facmc.common.pojo;
+package org.facmc.gateway.pojo;
 
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.AuthorityUtils;

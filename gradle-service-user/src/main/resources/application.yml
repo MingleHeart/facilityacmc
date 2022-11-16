@@ -8,6 +8,7 @@ eureka:
     fetch-registry: true
     register-with-eureka: true
 spring:
+
   main:
     web-application-type: reactive
     allow-bean-definition-overriding: true
